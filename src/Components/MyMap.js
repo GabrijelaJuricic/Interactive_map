@@ -1,25 +1,29 @@
 import React, { useEffect } from "react";
 import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import { useRecoilState } from "recoil";
-import { fetchedGeoJsonDataState } from "../atoms";
+import jsonData from "../data/data.json";
+import {
+  fetchedGeoJsonDataState,
+  truthfulnessOfFetchedDataState,
+} from "../atoms";
 import "./MyMap.css";
 
 const MyMap = () => {
   const [fetchedGeoJsonData, setFetchedGeoJsonData] = useRecoilState(
     fetchedGeoJsonDataState
   );
+  const [dataIsFetched, setDataIsFetched] = useRecoilState(
+    truthfulnessOfFetchedDataState
+  );
 
+  // --- Fetching and storing data --- //
   useEffect(() => {
-    fetch("https://plovput.li-st.net/getObjekti/")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setFetchedGeoJsonData(data);
-      });
+    setFetchedGeoJsonData(jsonData.features);
   }, []);
 
-  console.log(fetchedGeoJsonData.features);
+  useEffect(() => {
+    setDataIsFetched(true);
+  }, [fetchedGeoJsonData]);
 
   return (
     <MapContainer
@@ -35,10 +39,18 @@ const MyMap = () => {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
 
-      <Marker
-        key={Math.random()}
-        position={[45.8115689798883, 15.914671526419859]}
-      ></Marker>
+      {dataIsFetched &&
+        fetchedGeoJsonData.map((point) => {
+          return (
+            <Marker
+              key={Math.random()}
+              position={[
+                point.geometry.coordinates[1],
+                point.geometry.coordinates[0],
+              ]}
+            ></Marker>
+          );
+        })}
     </MapContainer>
   );
 };
