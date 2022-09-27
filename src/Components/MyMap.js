@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { MapContainer, TileLayer, Marker } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useRecoilState } from "recoil";
 import L from "leaflet";
 import jsonData from "../data/data.json";
@@ -37,7 +37,7 @@ const MyMap = () => {
     <MapContainer
       center={[44.663689, 16.278737]}
       zoom={7}
-      maxZoom={30}
+      maxZoom={19}
       minZoom={7}
       maxBounds={[
         [47, 12.5],
@@ -59,7 +59,15 @@ const MyMap = () => {
                 point.geometry.coordinates[0],
               ]}
               icon={myIcon}
-            ></Marker>
+            >
+              <Popup className="popup">
+                Naziv: {point.properties.naziv_objekta}
+                Ps_br: {point.properties.ps_br}
+                E_br: {point.properties.e_br}
+                Tip objekta: {point.properties.tip_objekta}
+                Lučka kapetanija: {point.properties.lucka_kapetanija},
+              </Popup>
+            </Marker>
           );
         })}
     </MapContainer>
