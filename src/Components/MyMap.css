@@ -8,6 +8,19 @@
   justify-content: center;
   align-items: center;
 }
+.leaflet-touch .leaflet-bar a:first-child {
+  background-color: #5aa9c4;
+  text-decoration: none;
+}
+.leaflet-touch .leaflet-bar a:last-child {
+  text-decoration: none;
+  background-color: #5aa9c4;
+}
+span {
+  background-color: #5aa9c4;
+  color: white;
+  font-size: 17px;
+}
 .popup ul li {
   list-style: none;
 }
