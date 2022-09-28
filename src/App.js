@@ -11,16 +11,16 @@ const App = () => {
         <Route path="/table" element={<Table />}></Route>
       </Routes>
       <div className="btn-group" role="group" aria-label="Basic example">
-        <button type="button" className="btn btn-secondary">
-          <Link to="/" className="link">
+        <Link to="/" className="link">
+          <button type="button" className="btn btn-secondary">
             Karta
-          </Link>
-        </button>
-        <button type="button" className="btn btn-secondary">
-          <Link to="/table" className="link">
+          </button>
+        </Link>
+        <Link to="/table" className="link">
+          <button type="button" className="btn btn-secondary">
             Tablica
-          </Link>
-        </button>
+          </button>
+        </Link>
       </div>
     </Router>
   );
