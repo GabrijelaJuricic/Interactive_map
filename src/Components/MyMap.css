@@ -1,25 +1,15 @@
+/* --- Leaflet container --- */
 .leaflet-container {
   width: 100vw;
   height: 100vh;
 }
+
+/* --- Popup --- */
 .leaflet-popup-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-.leaflet-touch .leaflet-bar a:first-child {
-  background-color: #5aa9c4;
-  text-decoration: none;
-}
-.leaflet-touch .leaflet-bar a:last-child {
-  text-decoration: none;
-  background-color: #5aa9c4;
-}
-span {
-  background-color: #5aa9c4;
-  color: white;
-  font-size: 17px;
 }
 .popup ul li {
   list-style: none;
@@ -27,4 +17,30 @@ span {
 ul {
   padding: 0;
   margin: 0;
+}
+
+/* --- Zoom in/Zoom out buttons */
+.leaflet-touch .leaflet-bar a:first-child,
+.leaflet-touch .leaflet-bar a:last-child {
+  background-color: #5aa9c4;
+  color: rgba(255, 255, 255, 0.901);
+  text-decoration: none;
+  font-size: 16px;
+}
+.leaflet-touch .leaflet-bar a:first-child:hover,
+.leaflet-touch .leaflet-bar a:last-child:hover {
+  background-color: #515960;
+  transition: 0.15s ease-in-out;
+}
+.leaflet-control-zoom .leaflet-control > span {
+  background-color: #5aa9c4;
+  color: white;
+  font-size: 17px;
+}
+.leaflet-touch .leaflet-control-layers,
+.leaflet-touch .leaflet-bar {
+  border: none;
+}
+.leaflet-control-zoom > a:hover {
+  background-color: #6c757d;
 }

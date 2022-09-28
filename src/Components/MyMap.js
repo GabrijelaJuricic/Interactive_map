@@ -26,13 +26,6 @@ const MyMap = () => {
     setDataIsFetched(true);
   }, [fetchedGeoJsonData]);
 
-  var myIcon = L.icon({
-    iconUrl:
-      "https://img.icons8.com/external-bearicons-outline-color-bearicons/64/000000/external-Port-location-bearicons-outline-color-bearicons.png",
-    iconSize: [34, 34],
-    iconAnchor: [32, 64],
-  });
-
   return (
     <MapContainer
       center={[44.663689, 16.278737]}
@@ -58,15 +51,32 @@ const MyMap = () => {
                 point.geometry.coordinates[1],
                 point.geometry.coordinates[0],
               ]}
-              icon={myIcon}
+              icon={L.icon({
+                iconUrl:
+                  "https://img.icons8.com/external-bearicons-outline-color-bearicons/64/000000/external-Port-location-bearicons-outline-color-bearicons.png",
+                iconSize: [34, 34],
+                iconAnchor: [15, 33],
+                popupAnchor: [2, -35],
+              })}
             >
               <Popup className="popup">
                 <ul>
-                  <li>Naziv: {point.properties.naziv_objekta}</li>
-                  <li>Ps_br: {point.properties.ps_br}</li>
-                  <li>E_br: {point.properties.e_br}</li>
-                  <li>Tip objekta: {point.properties.tip_objekta}</li>
-                  <li>Lučka kapetanija: {point.properties.lucka_kapetanija}</li>
+                  <li>
+                    <strong>Naziv:</strong> {point.properties.naziv_objekta}
+                  </li>
+                  <li>
+                    <strong>Ps_br:</strong> {point.properties.ps_br}
+                  </li>
+                  <li>
+                    <strong>E_br:</strong> {point.properties.e_br}
+                  </li>
+                  <li>
+                    <strong>Tip objekta:</strong> {point.properties.tip_objekta}
+                  </li>
+                  <li>
+                    <strong>Lučka kapetanija:</strong>{" "}
+                    {point.properties.lucka_kapetanija}
+                  </li>
                 </ul>
               </Popup>
             </Marker>

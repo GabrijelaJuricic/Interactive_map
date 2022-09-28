@@ -1,16 +1,22 @@
+/* --- Switch page buttons --- */
 .btn-group {
   bottom: 15px;
   left: 15px;
   z-index: 400;
   position: fixed;
+  border: 1px solid #ccccccd9;
 }
 .btn-secondary {
-  background-color: #5aa9c4;
-}
-button a {
-  text-decoration: none;
+  background-color: #5aaac4e0;
+  border-radius: 3px;
+  border: none;
+  border-left: 1px solid #ccccccd9;
 }
 .link {
   text-decoration: none;
-  color: white;
+  color: rgba(255, 255, 255, 0.901);
+}
+a:hover {
+  color: rgba(255, 255, 255, 0.901);
+  text-decoration: none;
 }
