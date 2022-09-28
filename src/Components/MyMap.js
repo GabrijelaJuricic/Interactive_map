@@ -61,11 +61,13 @@ const MyMap = () => {
               icon={myIcon}
             >
               <Popup className="popup">
-                Naziv: {point.properties.naziv_objekta}
-                Ps_br: {point.properties.ps_br}
-                E_br: {point.properties.e_br}
-                Tip objekta: {point.properties.tip_objekta}
-                Lučka kapetanija: {point.properties.lucka_kapetanija},
+                <ul>
+                  <li>Naziv: {point.properties.naziv_objekta}</li>
+                  <li>Ps_br: {point.properties.ps_br}</li>
+                  <li>E_br: {point.properties.e_br}</li>
+                  <li>Tip objekta: {point.properties.tip_objekta}</li>
+                  <li>Lučka kapetanija: {point.properties.lucka_kapetanija}</li>
+                </ul>
               </Popup>
             </Marker>
           );
