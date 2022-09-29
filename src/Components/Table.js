@@ -22,13 +22,13 @@ const Table = () => {
     <Fragment>
       <div className="container">
         <div className="table-container">
-          <table className="table table-striped table-bordered w-50 rounded mb-3 shadow-lg bg-white rounded">
+          <table className="table table-striped table-bordered w-75 rounded mb-3 shadow-lg bg-white rounded">
             <thead>
               <tr>
                 <th
                   scope="col"
                   className="text-center align-middle"
-                  style={{ width: "51%" }}
+                  style={{ width: "54%" }}
                 >
                   Naziv
                 </th>
@@ -56,7 +56,7 @@ const Table = () => {
                 <th
                   scope="col"
                   className="text-center align-middle"
-                  style={{ width: "18%" }}
+                  style={{ width: "12%" }}
                 >
                   Lučka kapetanija
                 </th>

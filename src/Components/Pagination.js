@@ -12,8 +12,9 @@ const Pagination = () => {
 
   const nextPageHandler = () => {
     // Edge case for disabling this button when
-    // there is no more geoJson data still needs to be done
-    setSelectedPage((currPage) => currPage + 1);
+    // there is no more geoJson data still needs to be done.
+    // For now, it's hardcoded.
+    if (selectedPage < 61) setSelectedPage((currPage) => currPage + 1);
   };
   return (
     <div className="button-container">
