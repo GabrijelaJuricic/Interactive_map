@@ -1,33 +1,67 @@
-import React from "react";
+import React, { Fragment, useEffect } from "react";
 import jsonData from "../data/data.json";
 import TableItems from "./TableItems";
+import Pagination from "./Pagination";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { paginatedGeoJsonDataState, selectedPageState } from "../atoms";
 import "./Table.css";
 
 const Table = () => {
+  const [paginatedGeoJsonData, setPaginatedGeoJsonData] = useRecoilState(
+    paginatedGeoJsonDataState
+  );
+  const selectedPage = useRecoilValue(selectedPageState);
+
+  useEffect(() => {
+    setPaginatedGeoJsonData(
+      jsonData.features.slice(selectedPage * 20, (selectedPage + 1) * 20)
+    );
+  }, [selectedPage]);
+
   return (
-    <div>
-      <table className="table table-striped table-bordered w-50 rounded shadow-lg p-3 mb-5 bg-white rounded">
+    <Fragment>
+      <table className="table table-striped table-bordered w-50 rounded shadow-lg bg-white rounded">
         <thead>
           <tr>
-            <th scope="col" className="text-center align-middle">
+            <th
+              scope="col"
+              className="text-center align-middle"
+              style={{ width: "51%" }}
+            >
               Naziv
             </th>
-            <th scope="col" className="text-center align-middle">
+            <th
+              scope="col"
+              className="text-center align-middle"
+              style={{ width: "10%" }}
+            >
               Ps_br
             </th>
-            <th scope="col" className="text-center align-middle">
+            <th
+              scope="col"
+              className="text-center align-middle"
+              style={{ width: "10%" }}
+            >
               E_br
             </th>
-            <th scope="col" className="text-center align-middle">
-              Tip objekta
+            <th
+              scope="col"
+              className="text-center align-middle"
+              style={{ width: "10%" }}
+            >
+              Tip
             </th>
-            <th scope="col" className="text-center align-middle">
+            <th
+              scope="col"
+              className="text-center align-middle"
+              style={{ width: "18%" }}
+            >
               Lučka kapetanija
             </th>
           </tr>
         </thead>
         <tbody>
-          {jsonData.features.map((data) => (
+          {paginatedGeoJsonData.map((data) => (
             <TableItems
               naziv={data.properties.naziv_objekta}
               ps_br={data.properties.ps_br}
@@ -38,36 +72,8 @@ const Table = () => {
           ))}
         </tbody>
       </table>
-      {/* <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
-          <li class="page-item disabled">
-            <a class="page-link" href="#" tabindex="-1">
-              Previous
-            </a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#">
-              1
-            </a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#">
-              2
-            </a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#">
-              3
-            </a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#">
-              Next
-            </a>
-          </li>
-        </ul>
-      </nav> */}
-    </div>
+      <Pagination />
+    </Fragment>
   );
 };
 
