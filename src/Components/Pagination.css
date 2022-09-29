@@ -1,0 +1,20 @@
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pagination-button {
+  font-size: 14px;
+  padding: 5px 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  background-color: #70b5cc;
+  color: white;
+  border: 1px solid #d4d4d4;
+  border-radius: 5px;
+}
+.button-container > h3 {
+  font-size: 18px;
+  margin: 0;
+  list-style: none;
+}

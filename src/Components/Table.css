@@ -1,4 +1,17 @@
 /* --- Table --- */
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.table-container {
+  display: flex;
+  width: 100vw;
+  align-content: center;
+  justify-content: center;
+}
 table {
   display: block;
   height: 75vh;
@@ -18,10 +31,6 @@ tbody {
 }
 .table-bordered {
   border: 1px solid #dee2e6;
-  border-radius: 5px;
-  position: absolute;
-  top: 10%;
-  left: 26%;
 }
 .pag-button {
   display: flex;

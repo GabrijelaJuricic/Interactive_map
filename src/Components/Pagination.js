@@ -1,6 +1,7 @@
 import React from "react";
 import { useRecoilState } from "recoil";
 import { selectedPageState } from "../atoms";
+import "./Pagination.css";
 
 const Pagination = () => {
   const [selectedPage, setSelectedPage] = useRecoilState(selectedPageState);
@@ -15,10 +16,22 @@ const Pagination = () => {
     setSelectedPage((currPage) => currPage + 1);
   };
   return (
-    <div className="pag-button">
-      <button onClick={previousPageHandler}>-</button>
-      <p>{selectedPage + 1}</p>
-      <button onClick={nextPageHandler}>+</button>
+    <div className="button-container">
+      <button
+        type="button"
+        className="pagination-button"
+        onClick={previousPageHandler}
+      >
+        Nazad
+      </button>
+      <h3>{selectedPage + 1}</h3>
+      <button
+        type="button"
+        className="pagination-button"
+        onClick={nextPageHandler}
+      >
+        Dalje
+      </button>
     </div>
   );
 };
