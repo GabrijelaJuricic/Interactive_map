@@ -38,6 +38,10 @@ const MyMap = () => {
         [41.9, 20],
       ]}
     >
+      <label className="switch">
+        <input type="checkbox" />
+        <span className="slider round"></span>
+      </label>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
