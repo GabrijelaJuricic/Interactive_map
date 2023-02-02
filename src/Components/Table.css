@@ -1,5 +1,6 @@
 /* --- Table --- */
 .container {
+  min-width: 992px;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -9,6 +10,7 @@
 .table-container {
   display: flex;
   width: 100vw;
+  min-width: 1300px;
   align-content: center;
   justify-content: center;
 }
@@ -20,7 +22,7 @@ table {
 }
 thead {
   position: sticky;
-  top: 0;
+  top: -1px;
   background-color: white;
 }
 tbody {

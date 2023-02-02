@@ -20,7 +20,7 @@ const Pagination = () => {
     <div className="button-container">
       <button
         type="button"
-        className="pagination-button"
+        className="btn btn-secondary"
         onClick={previousPageHandler}
       >
         Nazad
@@ -28,7 +28,7 @@ const Pagination = () => {
       <h3>{selectedPage + 1}</h3>
       <button
         type="button"
-        className="pagination-button"
+        className="btn btn-secondary"
         onClick={nextPageHandler}
       >
         Dalje

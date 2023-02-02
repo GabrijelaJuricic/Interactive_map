@@ -1,7 +1,8 @@
 .button-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  width: 160px;
 }
 .pagination-button {
   font-size: 14px;
